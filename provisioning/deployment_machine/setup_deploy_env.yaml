@@ -36,7 +36,7 @@
 
     - name: Install Python requirements from the file provided
       pip:
-        requirements: requirements.txt
+        requirements: /home/ubuntu/it_jobswatch_devops_project/requirements.txt
       args:
         chdir: "{{ app_dir }}"
 
