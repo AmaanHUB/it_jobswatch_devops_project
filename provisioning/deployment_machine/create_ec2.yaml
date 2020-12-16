@@ -62,7 +62,7 @@
         count: 1
         instance_tags:
           Name: eng74_amaan_Testing_DEPLOYMENT
-        register: ec2
+      register: ec2
 
     - name: Show ec2 output hopefully
       debug:
