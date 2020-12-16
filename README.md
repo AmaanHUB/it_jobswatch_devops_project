@@ -58,3 +58,8 @@ Follow the instructions to download via the various options given.
 * Clone this directory and run the `ansible-setup/provisioning.sh` executable to set up everything (for now)
 * Sync over `.pem` key to `~/.ssh/` on remote host
 		* This is used for when it accesses the other instances (.i.e. the dev environment)
+
+
+## To Do
+* inventory file in or near provisioning
+* potential ansible-galaxy

@@ -29,6 +29,11 @@
         sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 20
         sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
 
+
+    - name: show the app_dir variable
+      debug:
+        msg: "{{ app_dir }}"
+
     - name: Install Python requirements from the file provided
       pip:
         requirements: requirements.txt
