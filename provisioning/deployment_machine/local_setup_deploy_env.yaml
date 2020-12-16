@@ -1,9 +1,9 @@
 ---
 
 - name: Setting up the development environment
-  hosts: deployment_env
+  hosts: all
   vars:
-    app_dir: /home/ubuntu/it_jobswatch_devops_project
+    app_dir: /home/vagrant/it_jobswatch_devops_project
     host_name: deployment_env
 
   # gathers state of the machine before running
@@ -38,10 +38,10 @@
         update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
       become: yes
 
-    - name: Checkout a github repo and use refspec to fetch all pull requests
-      git:
-        repo: https://github.com/AmaanHUB/it_jobswatch_devops_project
-        dest: /home/ubuntu/it_jobswatch_devops_project
+      #     - name: Checkout a github repo and use refspec to fetch all pull requests
+      #       git:
+      #         repo: https://github.com/AmaanHUB/it_jobswatch_devops_project
+      #         dest: /home/ubuntu/it_jobswatch_devops_project
 
     - name: Sort out python requirements manually
       pip:
