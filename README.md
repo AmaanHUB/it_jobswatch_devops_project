@@ -44,3 +44,17 @@ Follow the instructions to download via the various options given.
 * Adding a job details search option (essentially be able to search for a specific role and return the details in a CSV)
 * create a connected database for full deployment
 * Build a scheduler as part of a full deployment to poll and add to the database
+
+
+# New README
+
+## Setting Up VPC
+
+* VPC, NACL, Subnet, Route table set up steps here
+
+## Setting Up An Ansible Controller
+
+* Create EC2 instance, attach to VPC
+* Clone this directory and run the `ansible-setup/provisioning.sh` executable to set up everything (for now)
+* Sync over `.pem` key to `~/.ssh/` on remote host
+		* This is used for when it accesses the other instances (.i.e. the dev environment)
