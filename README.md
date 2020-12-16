@@ -65,3 +65,5 @@ Follow the instructions to download via the various options given.
 		* with automatic addition of IPs
 * potential ansible-galaxy
 * Add how to do certain set ups here, and explain through the ansible playbooks
+* One master playbook for deployment_env
+* sort out the host in deployment setup yaml,so interactive or reads maybe, so that don't need two files
