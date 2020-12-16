@@ -42,6 +42,10 @@
         region: "{{ region }}"
       register: result
 
+
+    - debug:
+        msg: "result is {{ result }}"
+
     - name: Create EC2 instance
       ec2:
         aws_access_key: "{{ aws_access_key }}"
@@ -58,5 +62,9 @@
         count: 1
         instance_tags:
           Name: eng74_amaan_Testing_DEPLOYMENT
+        register: ec2
+
+    - debug:
+        msg: "{{ ec2 }}"
 
   tags: ['never', 'create_ec2']
