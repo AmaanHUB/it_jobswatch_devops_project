@@ -1,7 +1,7 @@
 ---
 
 - name: Create EC2 Instances
-  hosts: local
+  hosts: deployment_env
   connection: local
   gather_facts: true
   become: true
