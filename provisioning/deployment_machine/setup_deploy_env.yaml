@@ -51,3 +51,6 @@
         requirements: requirements.txt
       args:
         chdir: "{{ app_dir }}"
+      debug:
+        msg: In
+        shell: "pwd && ls -l"
