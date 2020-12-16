@@ -43,7 +43,8 @@
       register: result
 
 
-    - debug:
+    - name: Show result output
+      debug:
         msg: "result is {{ result }}"
 
     - name: Create EC2 instance
@@ -64,7 +65,8 @@
           Name: eng74_amaan_Testing_DEPLOYMENT
         register: ec2
 
-    - debug:
+    - name: Show ec2 output hopefully
+      debug:
         msg: "{{ ec2 }}"
 
   tags: ['never', 'create_ec2']
