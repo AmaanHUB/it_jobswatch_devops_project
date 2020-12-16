@@ -3,7 +3,7 @@
 - name: Setting up the development environment
   hosts: deployment_env
   vars:
-    app_dir: /home/ubuntu/it_jobswatch_devops_project/
+    app_dir: /home/ubuntu/it_jobswatch_devops_project
     host_name: deployment_env
 
   # gathers state of the machine before running
@@ -31,8 +31,8 @@
 
     - name: Set Python3 as default Python
       shell: |
-        sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 20
-        sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
+        update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
+      become: yes
 
 
     - name: show the app_dir variable
@@ -47,5 +47,7 @@
       #         chdir: "{{ app_dir }}"
 
     - name: Sort out python requirements manually
-      shell: |
-        pip3 install -r "{{ app_dir }}"/requirements.txt
+      pip:
+        requirements: requirements.txt
+      args:
+        chdir: "{{ app_dir }}"

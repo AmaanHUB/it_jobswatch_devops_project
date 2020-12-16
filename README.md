@@ -62,4 +62,5 @@ Follow the instructions to download via the various options given.
 
 ## To Do
 * inventory file in or near provisioning
+		* with automatic addition of IPs
 * potential ansible-galaxy
