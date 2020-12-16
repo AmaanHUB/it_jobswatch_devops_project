@@ -1,7 +1,7 @@
 ---
 
 - name: Setting up the development environment
-  hosts: all
+  hosts: deployment_env
   vars:
     app_dir: /home/ubuntu/it_jobswatch_devops_project/
 
