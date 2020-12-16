@@ -3,7 +3,7 @@
 - name: Setting up the development environment
   hosts: deployment_env
   vars:
-    app_dir: /home/ubuntu/it_jobswatch_devops_project/
+    app_dir: /home/ubuntu/it_jobswatch_devops_project
 
   # gathers state of the machine before running
   gather_facts: yes
@@ -37,6 +37,4 @@
     - name: Install Python requirements from the file provided
       pip:
         requirements: /home/ubuntu/it_jobswatch_devops_project/requirements.txt
-      args:
-        chdir: "{{ app_dir }}"
 
