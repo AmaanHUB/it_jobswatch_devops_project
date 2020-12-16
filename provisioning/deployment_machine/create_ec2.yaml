@@ -17,7 +17,6 @@
     ansible_python_interpreter: /usr/bin/python3
 
   tasks:
-
     - name: Installing dependencies
       apt:
         pkg:

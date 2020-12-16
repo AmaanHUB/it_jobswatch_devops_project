@@ -34,6 +34,7 @@
       debug:
         msg: "{{ app_dir }}"
 
+      # to sort out, no such file or directory error
     - name: Install Python requirements from the file provided
       pip:
         requirements: requirements.txt
