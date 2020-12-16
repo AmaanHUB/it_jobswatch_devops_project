@@ -64,3 +64,4 @@ Follow the instructions to download via the various options given.
 * inventory file in or near provisioning
 		* with automatic addition of IPs
 * potential ansible-galaxy
+* Add how to do certain set ups here, and explain through the ansible playbooks
