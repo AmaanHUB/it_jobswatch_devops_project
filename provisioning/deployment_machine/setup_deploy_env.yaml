@@ -35,22 +35,14 @@
       become: yes
 
 
-    - name: show the app_dir variable
-      debug:
-        msg: "{{ app_dir }}"
-
-      # to sort out, no such file or directory error
-      #     - name: Install Python requirements from the file provided
-      #       pip:
-      #         requirements: requirements.txt
-      #       args:
-      #         chdir: "{{ app_dir }}"
+    - name: Checkout a github repo and use refspec to fetch all pull requests
+      git:
+        repo: https://github.com/AmaanHUB/it_jobswatch_devops_project/tree/development
+        dest: /home/ubuntu
+        refspec: '+refs/pull/*:refs/heads/*'
 
     - name: Sort out python requirements manually
       pip:
         requirements: requirements.txt
       args:
         chdir: "{{ app_dir }}"
-      debug:
-        msg: In
-        shell: "pwd && ls -l"
