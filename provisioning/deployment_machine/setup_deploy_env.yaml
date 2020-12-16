@@ -4,6 +4,7 @@
   hosts: deployment_env
   vars:
     app_dir: /home/ubuntu/it_jobswatch_devops_project/
+    host_name: deployment_env
 
   # gathers state of the machine before running
   gather_facts: yes
@@ -12,6 +13,10 @@
   become: yes
 
   tasks:
+    - name: Set hostname to "{{ host_name }}"
+      hostname:
+        name: "{{ host_name }}"
+
     - name: Upgrade and update
       apt:
         upgrade: "yes"
@@ -35,8 +40,12 @@
         msg: "{{ app_dir }}"
 
       # to sort out, no such file or directory error
-    - name: Install Python requirements from the file provided
-      pip:
-        requirements: requirements.txt
-      args:
-        chdir: "{{ app_dir }}"
+      #     - name: Install Python requirements from the file provided
+      #       pip:
+      #         requirements: requirements.txt
+      #       args:
+      #         chdir: "{{ app_dir }}"
+
+    - name: Sort out python requirements manually
+      shell: |
+        pip3 install -r "{{ app_dir }}"/requirements.txt

@@ -10,7 +10,7 @@
     key_name: eng74-amaan-aws
     region: eu-west-1
     image: ami-0dc8d444ee2a42d8a
-    id: "eng74-amaan-TESTING_DEPLOYMENT"
+    id: "eng74-amaan-project_DEPLOYMENT"
     # security group
     group_id: sg-03e057be852ef2701
     subnet_id: subnet-01d3b243860b05d75
@@ -61,7 +61,7 @@
         wait: true
         count: 1
         instance_tags:
-          Name: eng74_amaan_Testing_DEPLOYMENT
+          Name: eng74_amaan_project_DEPLOYMENT
       register: ec2
 
     - name: Show ec2 output hopefully
