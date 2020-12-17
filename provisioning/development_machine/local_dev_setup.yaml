@@ -19,7 +19,7 @@
 
 
     - name: Sort out the terminal
-      shell: bash {{ app_dir }}/provisioning/deployment_machine/terminal.sh
+      shell: bash {{ app_dir }}/provisioning/development_machine/terminal.sh
 
     - name: Upgrade and update
       apt:

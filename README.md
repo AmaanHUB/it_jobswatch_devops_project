@@ -1,6 +1,4 @@
-# DevOps IT Jobs Watch Project
-
-# Old README
+Introduction
 
 ## Introduction
 The aim of this project is to create a simple service that can scrape useful data from ITJobswatch.
@@ -66,6 +64,7 @@ Follow the instructions to download via the various options given.
 * potential ansible-galaxy
 * One master playbook for deployment_env
 * sort out the host in deployment setup yaml,so interactive or reads maybe, so that don't need two files
+* Set up security rules and VPC from an ansible file, as well as ansible controller
 
 * Vagrant:
 		* something to do with local provision file, maybe make as one with the main playbook with a conditional stuff
