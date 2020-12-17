@@ -49,7 +49,7 @@
       notify: Restart docker
 
     - name: Pull Jenkins docker container
-      docker:
+      docker_container:
         name: jenkins
         image: jenkins/jenkins:lts
         state: reloaded
