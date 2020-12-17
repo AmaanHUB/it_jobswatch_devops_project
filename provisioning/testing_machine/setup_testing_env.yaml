@@ -14,8 +14,8 @@
       hostname:
         name: "{{ host_name }}"
 
-    - name: Sort out the terminal (uses same script as deployment)
-      script: /home/amaan/Assorted-Projects/Work/Sparta-Training/DevOps/it_jobswatch_devops_project/provisioning/deployment_machine/terminal.sh
+        #     - name: Sort out the terminal (uses same script as deployment)
+        #       script: /home/amaan/Assorted-Projects/Work/Sparta-Training/DevOps/it_jobswatch_devops_project/provisioning/deployment_machine/terminal.sh
 
     - name: Upgrade and update
       apt:
