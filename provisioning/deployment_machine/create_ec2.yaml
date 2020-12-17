@@ -1,6 +1,6 @@
 ---
 
-- name: Create EC2 Instances
+- name: Create Deployment EC2 Instance
   hosts: local
   connection: local
   gather_facts: true
