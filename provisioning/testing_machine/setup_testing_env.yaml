@@ -60,7 +60,7 @@
         image: jenkins/jenkins:lts
         state: present
         exposed_ports:
-          - 8000
+          - "8080"
         published_ports:
           - "8080:8080"
 
