@@ -83,5 +83,4 @@ DOCUMENTATION TODO:
 * Explain how to set up the local dev environment with Vagrant (basically using `vagrant up`)
 * Explain Jenkins set up too .i.e. the two builds and the steps etc
 
-something
 :zap:
