@@ -53,7 +53,7 @@
         name: jenkins
         image: jenkins/jenkins:lts
         state: reloaded
-        pull: always
+        pull: yes
         ports:
           - "8080:8080"
 
