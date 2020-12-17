@@ -64,6 +64,14 @@ Follow the instructions to download via the various options given.
 * inventory file in or near provisioning
 		* with automatic addition of IPs
 * potential ansible-galaxy
-* Add how to do certain set ups here, and explain through the ansible playbooks
 * One master playbook for deployment_env
 * sort out the host in deployment setup yaml,so interactive or reads maybe, so that don't need two files
+
+* Vagrant:
+		* something to do with local provision file, maybe make as one with the main playbook with a conditional stuff
+		* otherwise fine
+
+
+DOCUMENTATION TODO:
+* Add how to do certain set ups here, and explain through the ansible playbooks
+	* adding to `/etc/ansible/hosts` and the vault part on `ansible-controller`
