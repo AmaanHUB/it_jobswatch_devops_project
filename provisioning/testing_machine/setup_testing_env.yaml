@@ -1,0 +1,60 @@
+---
+
+- name: Setting up the testing environment
+  hosts: testing_env
+
+  vars:
+    host_name: testing_env
+
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Set hostname to "{{ host_name }}"
+      hostname:
+        name: "{{ host_name }}"
+
+    - name: Sort out the terminal (uses same script as deployment)
+      shell: bash provisioning/deployment_machine/terminal.sh
+
+    - name: Upgrade and update
+      apt:
+        upgrade: "yes"
+        update_cache: yes
+        cache_valid_time: 3600
+
+
+    - name: Install prerequisites
+      apt:
+        pkg:
+          - python3
+          - python3-pip
+          - software-properties-common
+
+    - name: Get docker apt-key
+      apt-key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add the docker repository to the source list
+      apt-repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install docker
+      apt:
+        pkg:
+          - docker-ce
+      notify: Restart docker
+
+  handlers:
+    - name: Restart docker
+      service:
+        name: docker
+        state: restarted
+    - name: Set Python3 as default Python
+      shell: |
+        update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
+      become: yes
