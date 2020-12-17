@@ -15,7 +15,7 @@
         name: "{{ host_name }}"
 
     - name: Sort out the terminal (uses same script as deployment)
-      shell: bash provisioning/deployment_machine/terminal.sh
+      script: provisioning/deployment_machine/terminal.sh
 
     - name: Upgrade and update
       apt:
