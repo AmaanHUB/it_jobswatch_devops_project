@@ -59,15 +59,15 @@
         name: jenkins
         image: jenkins/jenkins:lts
         state: present
-        exposed_ports:
-          - "8080"
-        published_ports:
+        ports:
           - "8080:8080"
 
     - name: Install python3 within the Jenkins docker container
       shell: |
         docker exec -u 0 -it jenkins "bash"
         apt-get install python3 python3-pip
+        cat /var/lib/jenkins/secrets/initialAdminPassword
+
 
   handlers:
     - name: Update
