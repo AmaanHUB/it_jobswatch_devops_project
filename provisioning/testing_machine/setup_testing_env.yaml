@@ -37,7 +37,7 @@
         state: present
 
     - name: Add the docker repository to the source list
-      apt-repository:
+      apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
         state: present
         update_cache: yes
