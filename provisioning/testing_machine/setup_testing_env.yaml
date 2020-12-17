@@ -48,6 +48,11 @@
           - docker-ce
       notify: Restart docker
 
+    - name: Install docker interpreter
+      pip:
+        name: docker-py
+        state: present
+
       # sort out this bit
     - name: Pull Jenkins docker container
       docker_container:
