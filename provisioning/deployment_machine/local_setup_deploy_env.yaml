@@ -38,11 +38,7 @@
         update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
       become: yes
 
-      #     - name: Checkout a github repo and use refspec to fetch all pull requests
-      #       git:
-      #         repo: https://github.com/AmaanHUB/it_jobswatch_devops_project
-      #         dest: /home/ubuntu/it_jobswatch_devops_project
-
+      # potentially install these in a venv
     - name: Install Python packages from a requirements file
       pip:
         requirements: requirements.txt
