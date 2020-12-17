@@ -70,7 +70,16 @@ Follow the instructions to download via the various options given.
 		* something to do with local provision file, maybe make as one with the main playbook with a conditional stuff
 		* otherwise fine
 
+* Docker testing server setup, fix the path as the python code is hardcoded so breaks whenever trying to run in a container
+
 
 DOCUMENTATION TODO:
 * Add how to do certain set ups here, and explain through the ansible playbooks
 	* adding to `/etc/ansible/hosts` and the vault part on `ansible-controller`
+	* which playbooks to run and when
+		* mention how running the ec2 ones more than once will create more than one ec2
+		* explain how to get the IPs from these and where to put them
+	* How to set up ansible vault and what commands to use
+* Explain how to set up the local dev environment with Vagrant (basically using `vagrant up`)
+* Explain Jenkins set up too .i.e. the two builds and the steps etc
+
