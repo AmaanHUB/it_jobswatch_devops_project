@@ -66,12 +66,14 @@
         name: docker
         state: present
 
-      # sort out this bit
+      # Sort out the port section, have to manually stop and readd the ports
     - name: Pull Jenkins docker container
       community.general.docker_container:
         name: jenkins
         image: jenkins/jenkins:lts
         state: present
+        exposed_ports:
+          - "8080"
         ports:
           - "8080:8080"
 
