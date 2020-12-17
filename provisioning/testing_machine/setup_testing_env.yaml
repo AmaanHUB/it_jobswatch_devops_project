@@ -32,7 +32,7 @@
           - software-properties-common
 
     - name: Get docker apt-key
-      apt-key:
+      apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
 
