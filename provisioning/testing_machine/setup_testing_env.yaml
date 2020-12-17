@@ -52,7 +52,7 @@
       docker_container:
         name: jenkins
         image: jenkins/jenkins:lts
-        state: reloaded
+        state: present
         pull: yes
         ports:
           - "8080:8080"
