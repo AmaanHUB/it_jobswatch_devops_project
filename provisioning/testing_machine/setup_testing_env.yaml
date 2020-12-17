@@ -40,8 +40,7 @@
       apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
         state: present
-        update_cache: yes
-        cache_valid_time: 3600
+      notify: Update
 
     - name: Install docker
       apt:
@@ -50,11 +49,12 @@
       notify: Restart docker
 
   handlers:
+    - name: Update
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
     - name: Restart docker
       service:
         name: docker
         state: restarted
-    - name: Set Python3 as default Python
-      shell: |
-        update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
-      become: yes
