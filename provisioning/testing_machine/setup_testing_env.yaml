@@ -48,19 +48,21 @@
           - docker-ce
       notify: Restart docker
 
+      # sort out this bit
     - name: Pull Jenkins docker container
       docker_container:
         name: jenkins
         image: jenkins/jenkins:lts
         state: present
-        pull: yes
-        ports:
+        exposed_ports:
+          - 8000
+        published_ports:
           - "8080:8080"
 
     - name: Install python3 within the Jenkins docker container
       shell: |
-        docker exec -it jenkins "bash"
-        sudo apt install python3 python3-pip
+        docker exec -u 0 -it jenkins "bash"
+        apt-get install python3 python3-pip
 
   handlers:
     - name: Update
