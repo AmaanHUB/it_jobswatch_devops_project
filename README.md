@@ -27,8 +27,6 @@ To test whether the program will work from your machine:
 * Ensure the `config.ini` file has the test environment set to `live`
 * Ensure you're in the root path of the project and type `python -m pytest tests/`
 
-This should execute the tests if any fail you may have issues with this program.
-
 ### Running and using the program
 * Run the `main.py` file
 
@@ -97,6 +95,14 @@ ansible-playbook provisioning/deployment_machine/setup_deploy_env.yaml
 	- Virtualbox
 * Run `vagrant up`
 * It is set up by using an ansible playbook when the virtual machine is created
+
+
+## EARLY ACCESS
+
+* Some playbooks are concerned with setting up an EC2 instance that is a testing environment (.i.e. with Jenkins running), these are not working yet because they use docker and the code is hardcoded in such a way that this will not work.
+* Though you can create the instance with the playbook, just Jenkins will not work (as it will not listen to the proper ports when called through the playbook) and the testing will always fail due to the aforementioned reason
+* Usage is similar to the **Deployment Environments** setup
+
 DOCUMENTATION TODO:
 
 * Add how to do certain set ups here, and explain through the ansible playbooks
@@ -107,8 +113,6 @@ DOCUMENTATION TODO:
 	* How to set up ansible vault and what commands to use
 * Explain how to set up the local dev environment with Vagrant (basically using `vagrant up`)
 * Explain Jenkins set up too .i.e. the two builds and the steps etc
-
-:zap:
 
 ## To Do
 * Set up security rules and VPC from an ansible file, as well as ansible controller
