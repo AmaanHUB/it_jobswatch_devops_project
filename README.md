@@ -97,6 +97,44 @@ ansible-playbook provisioning/deployment_machine/setup_deploy_env.yaml
 * It is set up by using an ansible playbook when the virtual machine is created
 
 
+## Continuous Integration (CI) and Continuous Deployment (CD)
+
+Both of these are done with Jenkins which was hosted separately (it will be hosted with the `testing_env` scripts in the future.
+
+### CI
+
+* These steps should test the code and then merge it into the main branch if they pass
+* Checklist for what needs to be done to start off with: -
+	- Set up webhook on Github repo
+	- Create a job for the CI
+	- Set it up to watc the GitHub project
+	- In `Source Code Management`, have the repo with the `*/dev*` branch to build
+		- Make sure the credentials are added to the `Repositories`
+	- In `Build Triggers`, select `GitHub hook trigger for GITScm polling`
+	- For the `Build Environment`, add two `Execute shell` steps
+		- First and then second (though could possibly be within one build step
+```sh
+pip3 install virtualenv
+#/usr/bin/easy_install virtualenv
+
+PATH=$WORKSPACE/venv/bin:/usr/local/bin:$PATH
+if [ ! -d "venv" ]; then
+        virtualenv venv
+fi
+. venv/bin/activate
+pip3 install -r requirements.txt
+```
+```sh
+. venv/bin/activate
+python -m pytest tests/
+```
+* `Post-build Actions` → Select `Git Publisher` with the options selected as:
+	- `Push Only If Build Succeeds`
+	- `Merge Results`
+	- `Add Branch` -
+		- Branch to push → `main`
+		- Target remote name → `origin`
+
 ## EARLY ACCESS
 
 * Some playbooks are concerned with setting up an EC2 instance that is a testing environment (.i.e. with Jenkins running), these are not working yet because they use docker and the code is hardcoded in such a way that this will not work.
