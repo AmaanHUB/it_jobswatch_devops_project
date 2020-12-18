@@ -18,8 +18,8 @@
         name: "{{ host_name }}"
 
 
-    - name: Sort out the terminal
-      shell: bash ~/it_jobswatch_devops_project/provisioning/development_machine/terminal.sh
+        #     - name: Sort out the terminal
+        #       shell: bash ~/it_jobswatch_devops_project/provisioning/development_machine/terminal.sh
 
     - name: Upgrade and update
       apt:
