@@ -49,6 +49,7 @@ Follow the instructions to download via the various options given.
 ## Setting Up VPC
 
 * VPC, NACL, Subnet, Route table set up steps here
+* SGs, include Jenkins access too for controller
 
 ## Setting Up An Ansible Controller
 

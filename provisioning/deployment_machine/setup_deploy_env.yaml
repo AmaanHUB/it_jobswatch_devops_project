@@ -19,7 +19,7 @@
 
 
     - name: Sort out the terminal
-      shell: bash provisioning/deployment_machine/terminal.sh
+      shell: bash provisioning/development_machine/terminal.sh
 
     - name: Upgrade and update
       apt:
