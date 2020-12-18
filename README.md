@@ -135,7 +135,31 @@ python -m pytest tests/
 		- Branch to push → `main`
 		- Target remote name → `origin`
 
-## EARLY ACCESS
+
+### CD
+
+* The idea of this is to push the changes to the deployment environment and should only be done after the continuous integration
+* Things to do in Jenkins:
+	- Create a job
+	- Insert the project url
+	- In `Source Code Management`, same as above except the `Branches to build` is on `*/main`
+	- `Build Triggers` -
+		- `Build after other projects are built` → name_of_CI_job
+		- Select `Trigger only if build is stable`
+	- `Bindings`, add a `SSH User Private Key`, upload your AWS ssh key to access the ansible-controller
+	- `Build`, add this shell script and change the vault password, ansible_ip and AWS_ACCESS to whatever you named your `key file variable`:
+```sh
+ANSIBLE_IP="public_ip_of_controller"
+ssh -o "StrictHostKeyChecking=no" -i $AWS_ACCESS ubuntu@$ANSIBLE_IP<<EOF
+    # vault password here in " "
+    echo "password" > pass.txt
+    ansible-playbook ~/it_jobswatch_devops_project/provisioning/deployment_machine/setup_deploy_env.yaml --vault-password-file pass.txt
+    rm pass.txt
+EOF
+```
+
+
+## EARLY ACCESS, USE AT OWN RISK
 
 * Some playbooks are concerned with setting up an EC2 instance that is a testing environment (.i.e. with Jenkins running), these are not working yet because they use docker and the code is hardcoded in such a way that this will not work.
 * Though you can create the instance with the playbook, just Jenkins will not work (as it will not listen to the proper ports when called through the playbook) and the testing will always fail due to the aforementioned reason
