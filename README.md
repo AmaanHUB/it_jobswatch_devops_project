@@ -53,7 +53,7 @@ Follow the instructions to download via the various options given.
 ## Setting Up An Ansible Controller
 
 * Create EC2 instance, attach to VPC
-* Clone this directory and run the `ansible-setup/provisioning.sh` executable to set up everything (for now)
+* Clone this repository and run the `ansible-setup/provisioning.sh` executable to set up everything (for now)
 * Sync over `.pem` key to `~/.ssh/` on remote host
 		* This is used for when it accesses the other instances (.i.e. the dev environment)
 

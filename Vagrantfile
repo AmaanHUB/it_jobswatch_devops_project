@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
-    ansible.playbook = "./provisioning/deployment_machine/local_setup_deploy_env.yaml"
+    ansible.playbook = "./provisioning/development_machine/local_setup_deploy_env.yaml"
   end
 end
 
